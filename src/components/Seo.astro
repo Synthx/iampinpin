@@ -1,0 +1,24 @@
+---
+import { title as defaultTitle } from "@/configs/seo";
+
+type Props = {
+  title?: string;
+  description: string;
+};
+
+const { title, description } = Astro.props;
+const url = Astro.url;
+
+const pageTitle = title ? `${title} | ${defaultTitle}` : defaultTitle;
+---
+
+<title>{pageTitle}</title>
+<link rel="canonical" href={url} />
+<meta property="description" content={description} />
+<meta property="og:title" content={pageTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content="article" />
+<meta property="og:url" content={url} />
+<meta property="og:site_name" content="Portfolio Remi Taniel" />
+<meta property="og:locale" content="en" />
+<meta name="twitter:card" content="summary_large_image" />

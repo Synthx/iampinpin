@@ -1,0 +1,52 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@theme {
+  --color-primary: rgb(123, 0, 255);
+}
+
+@utility bg-background {
+  @apply bg-white;
+
+  @variant dark {
+    @apply bg-black;
+  }
+}
+
+@utility bg-header {
+  @apply bg-neutral-50;
+
+  @variant dark {
+    @apply bg-neutral-950;
+  }
+}
+
+@utility bg-card {
+  @apply bg-neutral-100;
+
+  @variant dark {
+    @apply bg-neutral-900;
+  }
+}
+
+@utility text-heading {
+  @apply text-neutral-900;
+
+  @variant dark {
+    @apply text-neutral-100;
+  }
+}
+
+@utility text-body {
+  @apply text-neutral-400;
+
+  @variant dark {
+    @apply text-neutral-500;
+  }
+}
+
+@utility screen {
+  @apply mx-auto max-w-screen-2xl px-10;
+}

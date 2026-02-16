@@ -1,0 +1,49 @@
+---
+import Card from "@/components/Card.astro";
+import Layout from "@/layouts/Layout.astro";
+import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
+---
+
+<Layout>
+  <div
+    class="screen grid grid-cols-1 gap-3 sm:grid-flow-row-dense sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+  >
+    <div class="col-span-2 row-span-2 aspect-square">
+      <div class="h-full w-full p-4">
+        <h1 class="text-heading text-3xl font-bold">
+          Bonjour 👋 I'm Remi <span class="text-body font-mono tracking-tighter"
+            >(or Pinpin)</span
+          >.<br />Welcome to my
+          <span class="inline-flex items-center gap-0.5"
+            >🌱<a
+              class="text-green-600"
+              href="https://anthonyamar.fr/Digital+garden/Digital+garden"
+              rel="noopener noreferrer"
+              target="_blank">digital garden</a
+            ><ArrowUpRightIcon height={30} width={30} /></span
+          >, I like to develop different things, and I'm currently working at
+          <span class="inline-flex items-center">
+            <a
+              class="text-orange-400"
+              rel="noopener noreferrer"
+              href="https://www.jetdev.fr/"
+              target="_blank">Jetdev</a
+            >
+            <ArrowUpRightIcon height={30} width={30} />
+          </span>.<br /><br />In my free time, I enjoy cooking, playing video
+          games, reading & doing some sports.<br /><br />I hope you enjoy
+          exploring my digital space as much as I enjoyed creating it.
+        </h1>
+      </div>
+    </div>
+    <div class="col-span-2 aspect-[2]">
+      <Card title="placeholder" type="project" />
+    </div>
+    <div class="aspect-square">
+      <Card title="placeholder" type="talk" />
+    </div>
+    <div class="aspect-square">
+      <Card title="placeholder" type="hobby" />
+    </div>
+  </div>
+</Layout>

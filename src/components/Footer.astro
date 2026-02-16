@@ -1,0 +1,38 @@
+---
+import { GITHUB } from "@/configs/socials";
+import Clock from "./Clock.svelte";
+---
+
+<footer class="bg-header py-16">
+  <div class="screen flex flex-col gap-10">
+    <div class="flex flex-col gap-2">
+      <p class="text-heading text-base">
+        Created with love, a bit of coffee, and way too many open tabs.<br
+        />Thanks for stopping by.
+      </p>
+      <p class="text-body text-base">
+        Working from Lille, North of France.<br />
+        <span>Local time: <Clock client:load /></span>
+      </p>
+    </div>
+    <div class="flex items-center justify-between gap-4">
+      <p class="text-body text-base">2026 © Remi Taniel</p>
+      <div class="flex items-center gap-4">
+        <a
+          class="text-body hover:text-primary text-base font-medium"
+          href="/legal">Legal notice</a
+        >
+        <a
+          class="text-body hover:text-primary text-base font-medium"
+          href="/changelog">Changelog</a
+        >
+        <a
+          class="text-body hover:text-primary text-base font-medium"
+          rel="noopener noreferrer"
+          target="_blank"
+          href={GITHUB}>Source code</a
+        >
+      </div>
+    </div>
+  </div>
+</footer>

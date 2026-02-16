@@ -1,0 +1,18 @@
+---
+type Props = {
+  type: string;
+  title: string;
+};
+
+const { type, title } = Astro.props;
+---
+
+<div class="bg-card flex h-full flex-col rounded-lg">
+  <div class="flex items-center justify-between p-4">
+    <p class="text-body text-sm tracking-tight">
+      {type}
+      <span> - </span>
+      {title}
+    </p>
+  </div>
+</div>

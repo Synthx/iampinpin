@@ -1,0 +1,29 @@
+---
+import { type CollectionEntry, render } from "astro:content";
+import Prose from "@/components/Prose.astro";
+import { formatDate } from "@/functions/date.ts";
+
+type Props = {
+  changelog: CollectionEntry<"changelog">;
+};
+
+const { changelog } = Astro.props;
+
+const { title, version, date } = changelog.data;
+const { Content } = await render(changelog);
+---
+
+<div class="flex items-start gap-6">
+  <div class="sticky flex flex-1 flex-col">
+    <p class="text-heading text-xl">{formatDate(date)}</p>
+    <p class="text-body font-mono text-base tracking-tighter">v{version}</p>
+  </div>
+  <div class="bg-card flex w-full flex-3 flex-col gap-3 rounded-lg p-6">
+    <h2 class="text-body font-mono text-base tracking-tighter">
+      {title}
+    </h2>
+    <Prose>
+      <Content />
+    </Prose>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+{
+  "name": "@iampinpin/portfolio",
+  "type": "module",
+  "version": "26.2.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "format": "npx prettier . --write"
+  },
+  "dependencies": {
+    "@astrojs/node": "^9.5.3",
+    "@astrojs/svelte": "^7.2.5",
+    "@tailwindcss/vite": "^4.1.18",
+    "astro": "^5.17.1",
+    "clsx": "^2.1.1",
+    "marked": "^17.0.2",
+    "rehype-external-links": "^3.0.0",
+    "svelte": "^5.51.2",
+    "tailwindcss": "^4.1.18",
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.19",
+    "prettier": "^3.8.1",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-tailwindcss": "^0.7.2"
+  }
+}

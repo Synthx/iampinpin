@@ -1,0 +1,33 @@
+---
+import ChangelogCard from "@/components/ChangelogCard.astro";
+import Seo from "@/components/Seo.astro";
+import Layout from "@/layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const data = await getCollection("changelog");
+const changelogs = data.toSorted(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+);
+---
+
+<Layout>
+  <Seo
+    slot="head"
+    title="Changelog"
+    description="A running log of things I’ve shipped, tweaked, rebuilt, or quietly improved on this website."
+  />
+  <div class="screen flex flex-col gap-8">
+    <div class="flex flex-col gap-4">
+      <h1 class="text-heading text-6xl font-bold uppercase">Changelog.</h1>
+      <p class="text-body text-base">
+        A running log of things I’ve shipped, tweaked, rebuilt, or quietly
+        improved on this website.<br />Not everything here is polished. Some
+        versions are half-built bridges. Some are late-night ideas that somehow
+        survived. Some are surprisingly stable.
+      </p>
+    </div>
+    <div class="mx-auto flex w-full max-w-3xl flex-col gap-4">
+      {changelogs.map((c) => <ChangelogCard changelog={c} />)}
+    </div>
+  </div>
+</Layout>

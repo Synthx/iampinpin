@@ -1,0 +1,24 @@
+---
+import Seo from "@/components/Seo.astro";
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout>
+  <Seo
+    slot="head"
+    title="Legal"
+    description="Policies evolve. Laws change. This page gets updated when needed — sometimes quietly, sometimes significantly."
+  />
+  <div class="screen flex flex-col gap-8">
+    <div class="flex flex-col gap-4">
+      <h1 class="text-heading text-6xl font-bold uppercase">Legal.</h1>
+      <p class="text-body text-base">
+        Policies evolve. Laws change. This page gets updated when needed —
+        sometimes quietly, sometimes significantly.<br />
+        If you’re looking for clarity, transparency, or just the fine print, you’re
+        in the right place.
+      </p>
+    </div>
+    <div class="mx-auto flex w-full max-w-3xl flex-col gap-4"></div>
+  </div>
+</Layout>

@@ -1,37 +1,69 @@
 ---
 import { GITHUB } from "@/configs/socials";
 import Clock from "./Clock.svelte";
+import ExternalLink from "@/components/ExternalLink.astro";
+import { LINKEDIN } from "@/configs/socials.ts";
 ---
 
-<footer class="bg-header py-16">
+<footer class="bg-header py-8 md:py-16">
   <div class="screen flex flex-col gap-10">
-    <div class="flex flex-col gap-2">
-      <p class="text-heading text-base">
-        Created with love, a bit of coffee, and way too many open tabs.<br
-        />Thanks for stopping by.
-      </p>
-      <p class="text-body text-base">
-        Working from Lille, North of France.<br />
-        <span>Local time: <Clock client:load /></span>
-      </p>
+    <div
+      class="flex flex-col-reverse items-start justify-between gap-4 md:flex-row"
+    >
+      <div class="flex flex-col gap-2">
+        <p class="text-heading text-base">
+          Created with love, a bit of coffee, and way too many open tabs.<br
+          />Thanks for stopping by.
+        </p>
+        <p class="text-body text-base">
+          Working from Lille, North of France.<br />
+          <span>Local time: <Clock client:load /></span>
+        </p>
+      </div>
+      <div class="flex flex-col md:items-end">
+        <p class="text-heading text-base font-normal md:text-right">
+          Open to conversations, collabs, sharing knowledge, let's discuss,
+          <span class="text-body">or connect through...</span>
+        </p>
+        <ul class="flex flex-col md:items-end">
+          <li>
+            <ExternalLink
+              class="text-body hover:text-heading text-base font-medium hover:underline"
+              href={GITHUB}
+            >
+              Github
+            </ExternalLink>
+          </li>
+          <li>
+            <ExternalLink
+              class="text-body hover:text-heading text-base font-medium hover:underline"
+              href={LINKEDIN}
+            >
+              LinkedIn
+            </ExternalLink>
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="flex items-center justify-between gap-4">
+    <div
+      class="flex flex-col justify-between gap-4 md:flex-row md:items-center"
+    >
       <p class="text-body text-base">2026 © Remi Taniel</p>
       <div class="flex items-center gap-4">
         <a
-          class="text-body hover:text-primary text-base font-medium"
+          class="text-body hover:text-heading text-base font-medium"
           href="/legal">Legal notice</a
         >
         <a
-          class="text-body hover:text-primary text-base font-medium"
+          class="text-body hover:text-heading text-base font-medium"
           href="/changelog">Changelog</a
         >
-        <a
-          class="text-body hover:text-primary text-base font-medium"
-          rel="noopener noreferrer"
-          target="_blank"
-          href={GITHUB}>Source code</a
+        <ExternalLink
+          class="text-body hover:text-heading text-base font-medium"
+          href={`${GITHUB}/iampinpin`}
         >
+          Source code
+        </ExternalLink>
       </div>
     </div>
   </div>

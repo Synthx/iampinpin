@@ -18,7 +18,9 @@ const changelogs = data.toSorted(
   />
   <div class="screen flex flex-col gap-8">
     <div class="flex flex-col gap-4">
-      <h1 class="text-heading text-6xl font-bold uppercase">Changelog.</h1>
+      <h1 class="text-heading text-3xl font-bold uppercase md:text-6xl">
+        Changelog.
+      </h1>
       <p class="text-body text-base">
         A running log of things I’ve shipped, tweaked, rebuilt, or quietly
         improved on this website.<br />Not everything here is polished. Some
@@ -26,7 +28,7 @@ const changelogs = data.toSorted(
         survived. Some are surprisingly stable.
       </p>
     </div>
-    <div class="mx-auto flex w-full max-w-3xl flex-col gap-4">
+    <div class="mx-auto flex w-full max-w-3xl flex-col gap-6">
       {changelogs.map((c) => <ChangelogCard changelog={c} />)}
     </div>
   </div>

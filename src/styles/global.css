@@ -48,5 +48,5 @@
 }
 
 @utility screen {
-  @apply mx-auto max-w-screen-2xl px-10;
+  @apply mx-auto max-w-screen-2xl p-6 md:p-10;
 }

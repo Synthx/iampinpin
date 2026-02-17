@@ -1,9 +1,9 @@
-FROM node:lts-alpine AS base
+FROM node:24-alpine AS base
 
 FROM base AS deps
 WORKDIR /app
 COPY package*.json ./
-RUN npm ci
+RUN npm ci --omit=dev
 
 FROM base AS builder
 WORKDIR /app

@@ -23,9 +23,9 @@ import { ClientRouter } from "astro:transitions";
       <title>{title}</title>
     </slot>
   </head>
-  <body class="relative flex min-h-screen flex-col-reverse lg:flex-col">
-    <Header />
-    <main class="flex-1 py-10">
+  <body class="flex flex-col">
+    <main class="relative flex flex-col-reverse md:flex-col">
+      <Header />
       <slot />
     </main>
     <Footer />

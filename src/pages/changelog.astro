@@ -3,11 +3,10 @@ import ChangelogCard from "@/components/ChangelogCard.astro";
 import Seo from "@/components/Seo.astro";
 import Layout from "@/layouts/Layout.astro";
 import { getCollection } from "astro:content";
+import { sortByDateDesc } from "@/functions/date.ts";
 
 const data = await getCollection("changelog");
-const changelogs = data.toSorted(
-  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
-);
+const changelogs = data.toSorted(sortByDateDesc);
 ---
 
 <Layout>

@@ -1,21 +1,18 @@
 ---
-import clsx from "clsx";
-
 type Props = {
   href: string;
 };
 
 const { href } = Astro.props;
 const currentPath = Astro.url.pathname;
-
-const classes = clsx(
-  "py-2 px-4 text-base text-body hover:text-heading text-center font-medium transition-colors rounded-lg",
-  {
-    "bg-black! text-white!": currentPath === href,
-  },
-);
 ---
 
-<a class={classes} href={href}>
+<a
+  class:list={[
+    "text-body hover:text-heading rounded-lg px-4 py-2 text-center text-base font-medium transition-colors",
+    { "bg-black! text-white!": currentPath === href },
+  ]}
+  href={href}
+>
   <slot />
 </a>

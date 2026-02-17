@@ -3,17 +3,14 @@ import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import svelte from "@astrojs/svelte";
 import rehypeExternalLinks from "rehype-external-links";
-
-import node from "@astrojs/node";
+import netlify from "@astrojs/netlify";
 
 // https://astro.build/config
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-
   integrations: [svelte()],
-
   markdown: {
     rehypePlugins: [
       [
@@ -25,8 +22,5 @@ export default defineConfig({
       ],
     ],
   },
-
-  adapter: node({
-    mode: "standalone",
-  }),
+  adapter: netlify(),
 });

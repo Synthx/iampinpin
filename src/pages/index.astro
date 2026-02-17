@@ -2,11 +2,18 @@
 import Card from "@/components/Card.astro";
 import Layout from "@/layouts/Layout.astro";
 import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
+import { getCollection } from "astro:content";
+import { sortByDateDesc } from "@/functions/date.ts";
+
+const data = await getCollection("garden", ({ data }) => {
+  return data.featured;
+});
+const cards = data.toSorted(sortByDateDesc);
 ---
 
 <Layout>
   <div
-    class="screen grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+    class="screen grid grid-flow-dense grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
   >
     <div class="row-span-2 sm:col-span-2 lg:aspect-square">
       <div class="h-full w-full p-2 sm:p-4">
@@ -37,14 +44,17 @@ import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
         </h1>
       </div>
     </div>
-    <div class="aspect-square sm:col-span-2 lg:aspect-[2]">
-      <Card title="placeholder" type="project" />
-    </div>
-    <div class="aspect-square">
-      <Card title="placeholder" type="talk" />
-    </div>
-    <div class="aspect-square">
-      <Card title="placeholder" type="hobby" />
-    </div>
+    {
+      cards.map((c) => (
+        <div
+          class:list={[
+            "aspect-square",
+            { "sm:col-span-2 lg:aspect-[2]": c.data.type === "project" },
+          ]}
+        >
+          <Card entry={c} />
+        </div>
+      ))
+    }
   </div>
 </Layout>

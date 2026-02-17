@@ -1,24 +1,23 @@
 {
   "name": "@iampinpin/portfolio",
   "type": "module",
-  "version": "26.2.2",
+  "version": "26.2.3",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro",
+    "start": "npx astro dev",
+    "build": "npx astro build",
+    "preview": "npx astro preview",
     "format": "npx prettier . --write",
     "lint": "npx prettier . --check && npx eslint ."
   },
   "dependencies": {
-    "@astrojs/node": "^9.5.3",
+    "@astrojs/netlify": "^6.6.4",
     "@astrojs/svelte": "^7.2.5",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.1.18",
+    "@types/node": "^24.10.13",
     "astro": "^5.17.1",
-    "clsx": "^2.1.1",
-    "marked": "^17.0.2",
     "rehype-external-links": "^3.0.0",
+    "sass": "^1.97.3",
     "svelte": "^5.51.2",
     "tailwindcss": "^4.1.18",
     "typescript": "^5.9.3"

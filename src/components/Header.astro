@@ -4,45 +4,31 @@ import HeaderLink from "./HeaderLink.astro";
 import GithubIcon from "@/assets/icons/github.svg";
 import MailIcon from "@/assets/icons/mail.svg";
 import LinkedinIcon from "@/assets/icons/linkedin.svg";
+import HeaderSocialLink from "@/components/HeaderSocialLink.astro";
 ---
 
-<nav class="bg-header sticky top-0 z-50 w-full border-b border-neutral-100">
-  <div class="screen flex items-center justify-between gap-4 py-4">
-    <div class="flex flex-1 items-center gap-2">
-      <a class="text-heading hover:text-primary text-xl font-bold" href="/"
-        >Remi</a
+<nav
+  class="bg-header sticky bottom-8 z-50 mx-auto mb-8 rounded-lg border-neutral-100 shadow-sm md:top-0 md:mx-0 md:rounded-none md:border-b md:shadow-none"
+>
+  <div class="md:screen flex items-center justify-between p-1 md:gap-4 md:py-4">
+    <div class="hidden flex-1 items-center gap-2 md:flex">
+      <a class="text-heading hover:text-body text-xl font-bold" href="/">Remi</a
       >
       <p class="text-body text-base font-normal">Software Engineer</p>
     </div>
     <div class="flex flex-1 items-center justify-center">
       <HeaderLink href="/"> Home </HeaderLink>
     </div>
-    <div class="flex flex-1 items-center justify-end gap-3">
-      <a
-        aria-label="Send me an email"
-        class="text-heading hover:text-primary text-base"
-        href={`mailto:${EMAIL}`}
-      >
-        <MailIcon color="currentColor" />
-      </a>
-      <a
-        aria-label="Github profile"
-        class="text-heading hover:text-primary text-base"
-        rel="noopener noreferrer"
-        target="_blank"
-        href={GITHUB}
-      >
-        <GithubIcon color="currentColor" />
-      </a>
-      <a
-        aria-label="LinkedIn profile"
-        class="text-heading hover:text-primary text-base"
-        rel="noopener noreferrer"
-        target="_blank"
-        href={LINKEDIN}
-      >
-        <LinkedinIcon color="currentColor" />
-      </a>
+    <div class="hidden flex-1 items-center justify-end gap-3 md:flex">
+      <HeaderSocialLink label="Send me an email" href={`mailto:${EMAIL}`}>
+        <MailIcon />
+      </HeaderSocialLink>
+      <HeaderSocialLink label="Follow me on Github" href={GITHUB}>
+        <GithubIcon />
+      </HeaderSocialLink>
+      <HeaderSocialLink label="Follow me on LinkedIn" href={LINKEDIN}>
+        <LinkedinIcon />
+      </HeaderSocialLink>
     </div>
   </div>
 </nav>

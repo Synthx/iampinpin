@@ -13,9 +13,11 @@ const { title, version, date } = changelog.data;
 const { Content } = await render(changelog);
 ---
 
-<div class="flex items-start gap-6">
+<div class="flex flex-col items-start gap-4 md:flex-row">
   <div class="sticky flex flex-1 flex-col">
-    <p class="text-heading text-xl">{formatDate(date)}</p>
+    <p class="text-heading text-lg font-medium md:text-xl">
+      {formatDate(date)}
+    </p>
     <p class="text-body font-mono text-base tracking-tighter">v{version}</p>
   </div>
   <div class="bg-card flex w-full flex-3 flex-col gap-3 rounded-lg p-6">

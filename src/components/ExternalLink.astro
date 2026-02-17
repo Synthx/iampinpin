@@ -1,0 +1,18 @@
+---
+import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
+
+type Props = {
+  class: string;
+  href: string;
+  iconSize?: number;
+};
+
+const { href, class: className, iconSize = 16 } = Astro.props;
+---
+
+<span class="inline-flex items-center gap-0.5">
+  <a class={className} rel="noopener noreferrer" target="_blank" href={href}>
+    <slot />
+  </a>
+  <ArrowUpRightIcon class="text-body" height={iconSize} width={iconSize} />
+</span>

@@ -4,9 +4,12 @@ import { Image } from "astro:assets";
 type Props = {
   class: string;
   src: string;
+  alt: string;
+  height: number | `${number}`;
+  width: number | `${number}`;
 };
 
-const { src, class: className } = Astro.props;
+const { src, alt, height, width, class: className } = Astro.props;
 ---
 
 <div
@@ -18,9 +21,9 @@ const { src, class: className } = Astro.props;
   <Image
     class="frame-image h-full w-full object-cover"
     src={src}
-    alt=""
-    width="800"
-    height="500"
+    alt={alt}
+    width={width}
+    height={height}
     loading="eager"
   />
 </div>

@@ -1,0 +1,25 @@
+---
+import Card from "@/components/card/Card.astro";
+import type { CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
+
+type Props = {
+  node: CollectionEntry<"garden">;
+};
+
+const { image, title, url } = Astro.props.node.data;
+---
+
+<Card type="hobby" title={title} url={url}>
+  {
+    image && (
+      <Image
+        class="absolute inset-0 h-full w-full rounded-lg transition-all group-hover:mt-12"
+        src={image}
+        alt={title}
+        height="400"
+        width="400"
+      />
+    )
+  }
+</Card>

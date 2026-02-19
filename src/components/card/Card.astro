@@ -1,0 +1,39 @@
+---
+import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
+import type { NodeType } from "@/types/digital-garden.ts";
+
+type Props = {
+  type: NodeType;
+  title: string;
+  url: string | undefined;
+};
+
+const { type, title, url } = Astro.props;
+const Tag = url ? "a" : "div";
+---
+
+<Tag
+  class="group bg-card relative flex h-full flex-col overflow-hidden rounded-lg"
+  href={url ?? undefined}
+  rel={url ? "noopener noreferrer" : undefined}
+  target={url ? "_blank" : undefined}
+>
+  <div class="flex items-center justify-between px-4 pt-2">
+    <p class="text-body inline-flex gap-1 py-1.5 text-sm tracking-tight">
+      {type}
+      <span>-</span>
+      {title}
+    </p>
+    {
+      url && (
+        <div
+          class="group-hover:bg-background text-body group-hover:text-heading flex h-8 w-8 items-center justify-center rounded-full transition-colors group-hover:shadow"
+          aria-label={title}
+        >
+          <ArrowUpRightIcon height={18} width={18} />
+        </div>
+      )
+    }
+  </div>
+  <slot />
+</Tag>

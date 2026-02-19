@@ -1,14 +1,22 @@
 ---
-import Card from "@/components/Card.astro";
 import Layout from "@/layouts/Layout.astro";
 import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
 import { getCollection } from "astro:content";
 import { sortByDateDesc } from "@/functions/date.ts";
+import ProjectCard from "@/components/card/ProjectCard.astro";
+import TalkCard from "@/components/card/TalkCard.astro";
+import HobbyCard from "@/components/card/HobbyCard.astro";
 
 const data = await getCollection("garden", ({ data }) => {
   return data.featured;
 });
 const cards = data.toSorted(sortByDateDesc);
+
+const nodeComponentMap = {
+  project: ProjectCard,
+  talk: TalkCard,
+  hobby: HobbyCard,
+};
 ---
 
 <Layout>
@@ -45,16 +53,20 @@ const cards = data.toSorted(sortByDateDesc);
       </div>
     </div>
     {
-      cards.map((c) => (
-        <div
-          class:list={[
-            "aspect-square",
-            { "sm:col-span-2 lg:aspect-[2]": c.data.type === "project" },
-          ]}
-        >
-          <Card entry={c} />
-        </div>
-      ))
+      cards.map((c) => {
+        const Component = nodeComponentMap[c.data.type];
+
+        return (
+          <div
+            class:list={[
+              "aspect-square",
+              { "sm:col-span-2 lg:aspect-[2]": c.data.type === "project" },
+            ]}
+          >
+            <Component node={c} />
+          </div>
+        );
+      })
     }
   </div>
 </Layout>

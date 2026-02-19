@@ -18,12 +18,18 @@ import { ClientRouter } from "astro:transitions";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
+    <script>
+      const stored = localStorage.getItem("theme");
+      if (stored) {
+        document.documentElement.setAttribute("data-theme", stored);
+      }
+    </script>
     <ClientRouter />
     <slot name="head">
       <title>{title}</title>
     </slot>
   </head>
-  <body class="flex flex-col">
+  <body class="bg-background flex flex-col">
     <main class="relative flex flex-col-reverse md:flex-col">
       <Header />
       <slot />

@@ -4,30 +4,33 @@ import { Image } from "astro:assets";
 type Props = {
   class: string;
   src: string;
+  alt: string;
+  height: number | `${number}`;
+  width: number | `${number}`;
 };
 
-const { src, class: className } = Astro.props;
+const { src, alt, height, width, class: className } = Astro.props;
 ---
 
 <div
   class:list={[
-    "frame shadow-lg shadow-neutral-600 transition-transform group-hover:scale-110 group-hover:rotate-2",
+    "frame border-neutral-300 shadow-lg shadow-neutral-300 transition-transform group-hover:scale-110 group-hover:rotate-2 dark:border-neutral-800 dark:shadow-neutral-700",
     className,
   ]}
 >
   <Image
     class="frame-image h-full w-full object-cover"
     src={src}
-    alt=""
-    width="800"
-    height="500"
+    alt={alt}
+    width={width}
+    height={height}
     loading="eager"
   />
 </div>
 
 <style lang="scss">
   .frame {
-    border: 6px solid #ddd;
+    border-width: 6px;
     border-radius: 18px;
 
     &-image {

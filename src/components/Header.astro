@@ -5,10 +5,11 @@ import GithubIcon from "@/assets/icons/github.svg";
 import MailIcon from "@/assets/icons/mail.svg";
 import LinkedinIcon from "@/assets/icons/linkedin.svg";
 import HeaderSocialLink from "@/components/HeaderSocialLink.astro";
+import ThemeToggle from "./ThemeToggle.svelte";
 ---
 
 <nav
-  class="bg-header sticky bottom-8 z-50 mx-auto mb-8 rounded-lg border-neutral-100 shadow-sm md:top-0 md:mx-0 md:rounded-none md:border-b md:shadow-none"
+  class="bg-header sticky bottom-8 z-50 mx-auto mb-8 rounded-lg border-neutral-100 shadow-sm md:top-0 md:mx-0 md:rounded-none md:border-b md:shadow-none dark:border-neutral-900"
 >
   <div class="md:screen flex items-center justify-between p-1 md:gap-4 md:py-4">
     <div class="hidden flex-1 items-center gap-2 md:flex">
@@ -29,6 +30,7 @@ import HeaderSocialLink from "@/components/HeaderSocialLink.astro";
       <HeaderSocialLink label="Follow me on LinkedIn" href={LINKEDIN}>
         <LinkedinIcon />
       </HeaderSocialLink>
+      <ThemeToggle client:load />
     </div>
   </div>
 </nav>

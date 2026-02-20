@@ -1,0 +1,25 @@
+---
+import Card from "@/components/card/Card.astro";
+import type { CollectionEntry } from "astro:content";
+import FramedImage from "@/components/FramedImage.astro";
+
+type Props = {
+  node: CollectionEntry<"garden">;
+};
+
+const { image, title, url } = Astro.props.node.data;
+---
+
+<Card type="talk" title={title} url={url}>
+  {
+    image && (
+      <FramedImage
+        class="absolute -right-3 -bottom-3 h-10/12 w-11/12"
+        height={400}
+        width={400}
+        src={image}
+        alt={title}
+      />
+    )
+  }
+</Card>

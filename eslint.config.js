@@ -4,7 +4,7 @@ import js from "@eslint/js";
 import tsEslint from "eslint-plugin-astro";
 
 export default defineConfig([
-  globalIgnores([".astro", "dist"]),
+  globalIgnores([".astro", "dist", ".netlify"]),
   js.configs.recommended,
   tsEslint.configs.recommended,
   astro.configs.recommended,

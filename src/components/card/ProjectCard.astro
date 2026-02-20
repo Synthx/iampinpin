@@ -1,0 +1,25 @@
+---
+import type { CollectionEntry } from "astro:content";
+import FramedImage from "@/components/FramedImage.astro";
+import Card from "@/components/card/Card.astro";
+
+type Props = {
+  node: CollectionEntry<"garden">;
+};
+
+const { image, title, url } = Astro.props.node.data;
+---
+
+<Card type="project" title={title} url={url}>
+  {
+    image && (
+      <FramedImage
+        class="absolute -bottom-3 left-1/2 h-4/5 w-5/6 -translate-x-1/2"
+        height={300}
+        width={600}
+        src={image}
+        alt={title}
+      />
+    )
+  }
+</Card>

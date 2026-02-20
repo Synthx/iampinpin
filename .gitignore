@@ -2,6 +2,10 @@
 dist/
 .netlify/
 
+# assets
+images/
+!public/images/
+
 # generated types
 .astro/
 

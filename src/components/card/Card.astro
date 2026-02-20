@@ -18,8 +18,10 @@ const Tag = url ? "a" : "div";
   rel={url ? "noopener noreferrer" : undefined}
   target={url ? "_blank" : undefined}
 >
-  <div class="flex items-center justify-between px-4 pt-2">
-    <p class="text-body inline-flex gap-1 py-1.5 text-sm tracking-tight">
+  <div class="flex items-center justify-between gap-2 px-4 pt-2">
+    <p
+      class="text-body inline-flex min-w-0 flex-1 gap-1 truncate py-1.5 text-sm tracking-tight"
+    >
       {type}
       <span>-</span>
       {title}

@@ -1,0 +1,34 @@
+---
+import Seo from "@/components/Seo.astro";
+import Layout from "@/layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import { sortByDateDesc } from "@/functions/date.ts";
+import NodeGrid from "@/components/NodeGrid.astro";
+
+const data = await getCollection("garden", (entry) => {
+  return entry.data.type !== "hobby";
+});
+const works = data.toSorted(sortByDateDesc);
+---
+
+<Layout>
+  <Seo
+    slot="head"
+    title="Work"
+    description="I have lot of ideas and projects that I would like to implement. Many ofthem get lost in my notes. But can you believe it? Some of them actually happen. And along the way, I’ve discovered that I truly love sharing my knowledge as it's a big part of what I like about being a developer."
+  />
+  <div class="screen flex flex-col gap-8">
+    <div class="flex flex-col gap-4">
+      <h1 class="text-heading text-3xl font-bold uppercase md:text-6xl">
+        Work.
+      </h1>
+      <p class="text-body text-base text-balance">
+        I have lot of ideas and projects that I would like to implement. Many of
+        them get lost in my notes. But can you believe it? Some of them actually
+        happen. And along the way, I’ve discovered that I truly love sharing my
+        knowledge as it's a big part of what I like about being a developer.
+      </p>
+    </div>
+    <NodeGrid nodes={works} />
+  </div>
+</Layout>

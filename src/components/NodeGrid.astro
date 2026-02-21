@@ -1,0 +1,40 @@
+---
+import type { CollectionEntry } from "astro:content";
+import ProjectCard from "@/components/card/ProjectCard.astro";
+import TalkCard from "@/components/card/TalkCard.astro";
+import HobbyCard from "@/components/card/HobbyCard.astro";
+
+type Props = {
+  nodes: CollectionEntry<"garden">[];
+};
+
+const { nodes } = Astro.props;
+
+const nodeComponentMap = {
+  project: ProjectCard,
+  talk: TalkCard,
+  hobby: HobbyCard,
+};
+---
+
+<div
+  class="grid grid-flow-dense grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+>
+  <slot />
+  {
+    nodes.map((c) => {
+      const Component = nodeComponentMap[c.data.type];
+
+      return (
+        <div
+          class:list={[
+            "aspect-square",
+            { "sm:col-span-2 lg:aspect-[2]": c.data.type === "project" },
+          ]}
+        >
+          <Component node={c} />
+        </div>
+      );
+    })
+  }
+</div>

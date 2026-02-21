@@ -3,70 +3,46 @@ import Layout from "@/layouts/Layout.astro";
 import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
 import { getCollection } from "astro:content";
 import { sortByDateDesc } from "@/functions/date.ts";
-import ProjectCard from "@/components/card/ProjectCard.astro";
-import TalkCard from "@/components/card/TalkCard.astro";
-import HobbyCard from "@/components/card/HobbyCard.astro";
+import NodeGrid from "@/components/NodeGrid.astro";
 
 const data = await getCollection("garden", ({ data }) => {
   return data.featured;
 });
-const cards = data.toSorted(sortByDateDesc);
-
-const nodeComponentMap = {
-  project: ProjectCard,
-  talk: TalkCard,
-  hobby: HobbyCard,
-};
+const nodes = data.toSorted(sortByDateDesc);
 ---
 
 <Layout>
-  <div
-    class="screen grid grid-flow-dense grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-  >
-    <div class="row-span-2 sm:col-span-2 lg:aspect-square">
-      <div class="h-full w-full p-2 sm:p-4">
-        <h1 class="text-heading text-xl font-bold sm:text-3xl">
-          Bonjour 👋 I'm Remi <span class="text-body font-mono tracking-tighter"
-            >(or Pinpin)</span
-          >.<br />Welcome to my
-          <span class="inline-flex items-center gap-0.5"
-            >🌱<a
-              class="text-green-600"
-              href="https://anthonyamar.fr/Digital+garden/Digital+garden"
-              rel="noopener noreferrer"
-              target="_blank">digital garden</a
-            ><ArrowUpRightIcon height={26} width={26} /></span
-          >, I like to develop, talking & sharing my knowlegde, and I'm
-          currently working at
-          <span class="inline-flex items-center gap-0.5">
-            <a
-              class="text-orange-400"
-              rel="noopener noreferrer"
-              href="https://www.jetdev.fr/"
-              target="_blank">Jetdev</a
-            >
-            <ArrowUpRightIcon height={26} width={26} />
-          </span>.<br /><br />In my free time, I enjoy cooking, playing video
-          games, reading & doing some sports.<br /><br />I hope you enjoy
-          exploring my digital space as much as I enjoyed creating it.
-        </h1>
+  <div class="screen flex flex-col">
+    <NodeGrid nodes={nodes}>
+      <div class="row-span-2 sm:col-span-2 lg:aspect-square">
+        <div class="h-full w-full p-2 sm:p-4">
+          <h1 class="text-heading text-xl font-bold sm:text-3xl">
+            Bonjour 👋 I'm Remi <span
+              class="text-body font-mono tracking-tighter">(or Pinpin)</span
+            >.<br />Welcome to my
+            <span class="inline-flex items-center gap-0.5"
+              >🌱<a
+                class="text-green-600"
+                href="https://anthonyamar.fr/Digital+garden/Digital+garden"
+                rel="noopener noreferrer"
+                target="_blank">digital garden</a
+              ><ArrowUpRightIcon height={26} width={26} /></span
+            >, I like to develop, talking & sharing my knowlegde, and I'm
+            currently working at
+            <span class="inline-flex items-center gap-0.5">
+              <a
+                class="text-orange-400"
+                rel="noopener noreferrer"
+                href="https://www.jetdev.fr/"
+                target="_blank">Jetdev</a
+              >
+              <ArrowUpRightIcon height={26} width={26} />
+            </span>.<br /><br />In my free time, I enjoy cooking, playing video
+            games, reading & doing some sports.<br /><br />I hope you enjoy
+            exploring my digital space as much as I enjoyed creating it.
+          </h1>
+        </div>
       </div>
-    </div>
-    {
-      cards.map((c) => {
-        const Component = nodeComponentMap[c.data.type];
-
-        return (
-          <div
-            class:list={[
-              "aspect-square",
-              { "sm:col-span-2 lg:aspect-[2]": c.data.type === "project" },
-            ]}
-          >
-            <Component node={c} />
-          </div>
-        );
-      })
-    }
+    </NodeGrid>
   </div>
 </Layout>

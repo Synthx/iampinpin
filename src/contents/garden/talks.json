@@ -4,7 +4,39 @@
     "type": "talk",
     "date": "2026-02-02",
     "url": "https://www.youtube.com/watch?v=vV41j4J75EM",
-    "image": "/images/talk-inno.png",
+    "image": "/images/talks/voix-innovation.avif",
     "featured": true
+  },
+  {
+    "title": "SSR Avec Angular",
+    "type": "talk",
+    "date": "2025-02-12",
+    "url": "https://www.youtube.com/watch?v=qkTko8bOK84",
+    "image": "/images/talks/angular-ssr.avif",
+    "featured": true
+  },
+  {
+    "title": "La réactivité en JavaScript",
+    "type": "talk",
+    "date": "2024-10-18",
+    "url": "https://www.youtube.com/watch?v=sxEEGS37yeQ",
+    "image": "/images/talks/js-reactivity.avif",
+    "featured": false
+  },
+  {
+    "title": "StencilJS – Beyond front-end frameworks",
+    "type": "talk",
+    "date": "2024-04-04",
+    "url": "https://www.youtube.com/watch?v=attMIO_CiBA",
+    "image": "/images/talks/stencil-js.avif",
+    "featured": false
+  },
+  {
+    "title": "REX: Construire un Design System",
+    "type": "talk",
+    "date": "2023-09-01",
+    "url": "https://www.youtube.com/watch?v=2UNs8ifNEfw",
+    "image": "/images/talks/design-system.avif",
+    "featured": false
   }
 ]
